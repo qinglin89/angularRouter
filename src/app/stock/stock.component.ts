@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {ActivatedRoute} from '@angular/router';
+import {ActivatedRoute, Params} from '@angular/router';
 
 @Component({
   selector: 'app-stock',
@@ -9,12 +9,13 @@ import {ActivatedRoute} from '@angular/router';
 export class StockComponent implements OnInit {
 
   private stockId:number;
+  private isPro:boolean;
 
   constructor(private routeInfo:ActivatedRoute) { }
 
   ngOnInit() {
-    this.stockId = this.routeInfo.params.subscribe((params: Pramas) => this.stockId = params["id"])
-    this.stockId = this.routeInfo.snapshot.params["id"];
+    this.routeInfo.params.subscribe((params: Params) => this.stockId = params["id"])
+    this.isPro = this.routeInfo.snapshot.data[0]['isPro']
   }
 
 }

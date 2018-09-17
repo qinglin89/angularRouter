@@ -5,8 +5,9 @@ import {StockComponent} from './stock/stock.component';
 import {Code404Component} from './code404/code404.component';
 
 const routes: Routes = [
-  {path: '', component: HomeComponent},
-  {path: 'stock/:id', component: StockComponent},
+  {path: '', redirectTo: '/home', pathMatch: 'full'},
+  {path: 'home', component: HomeComponent},
+  {path: 'stock/:id', component: StockComponent, data: [{isPro:true}]},
   {path: '**', component: Code404Component}
 ];
 
