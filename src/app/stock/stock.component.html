@@ -4,3 +4,7 @@
 <p>
 isPro={{isPro}}
 </p>
+
+<a [routerLink]="['./', 99]">buyer</a>
+<a [routerLink]="['./seller']" [queryParams]="{id:100}">seller</a>
+<router-outlet></router-outlet>
